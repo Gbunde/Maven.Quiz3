@@ -7,10 +7,10 @@ public class PigLatinGenerator {
     public String translate(String str) {
          VowelUtils vowelUtils;
 
-            String[] words = str.split(" ");
-            String translated = "";
-            for (String word : words) {
-                translated += translateOneWord(word) + " ";
+        String[] words = str.split(" ");
+        String translated = "";
+        for (String word : words) {
+            translated += translateOneWord(word) + " ";
             }
             return translated.trim();
         }
