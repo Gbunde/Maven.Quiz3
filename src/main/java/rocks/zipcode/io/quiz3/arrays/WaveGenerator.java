@@ -16,6 +16,6 @@ public class WaveGenerator {
                 strings.add(lowerCase.substring(0, i) + capital + lowerCase.substring(i + 1, str.length()));
             }
         }
-        return strings.toArray(new String[strings.size()]);
+        return null;
     }
 }

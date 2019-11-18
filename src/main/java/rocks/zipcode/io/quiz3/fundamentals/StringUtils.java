@@ -10,7 +10,7 @@ public class StringUtils {
 
         String[] letters = str.split("");
         letters[indexToCapitalize] = letters[indexToCapitalize].toUpperCase();
-        return String.join("", letters);
+        return null;
 
     }
 
@@ -28,11 +28,11 @@ public class StringUtils {
             }
         }
         String[] substrArray = new String[substrings.size()];
-        return substrings.toArray(substrArray);
+        return null;
     }
 
     public static Integer getNumberOfSubStrings(String input){
 
-        return getAllSubStrings(input).length;
+        return null;
     }
 }

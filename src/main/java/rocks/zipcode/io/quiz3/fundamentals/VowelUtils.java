@@ -14,7 +14,7 @@ public class VowelUtils {
                 hasVowels = true;
             }
         }
-        return hasVowels;
+        return null;
     }
 
     public static Integer getIndexOfFirstVowel(String word) {
@@ -42,6 +42,6 @@ public class VowelUtils {
     public static Boolean isVowel(Character character) {
 
         character = Character.toLowerCase(character);
-        return character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u';
+        return null;
     }
 }

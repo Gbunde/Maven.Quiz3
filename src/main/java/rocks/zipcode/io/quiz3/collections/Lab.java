@@ -21,7 +21,7 @@ public class Lab {
 
     public String getName() {
 
-        return labName;
+        return null;
     }
 
     public void setStatus(LabStatus labStatus) {
@@ -30,6 +30,6 @@ public class Lab {
 
     public LabStatus getStatus() {
 
-        return labStatus;
+        return null;
     }
 }
