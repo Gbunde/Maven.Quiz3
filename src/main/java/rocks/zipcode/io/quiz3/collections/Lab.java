@@ -6,22 +6,20 @@ package rocks.zipcode.io.quiz3.collections;
 
 
 public class Lab {
-
-    private String labName;
-    private LabStatus labStatus;
+    String labName;
+    LabStatus labStatus;
 
     public Lab() {
-        this(null);
+        ;
     }
 
     public Lab(String labName) {
         this.labName = labName;
-        this.labStatus = LabStatus.PENDING;
+        this.labStatus = LabStatus.INCOMPLETE;
     }
 
     public String getName() {
-
-        return null;
+        return this.labName;
     }
 
     public void setStatus(LabStatus labStatus) {
@@ -29,7 +27,6 @@ public class Lab {
     }
 
     public LabStatus getStatus() {
-
-        return null;
+        return this.labStatus;
     }
 }

@@ -5,29 +5,38 @@ package rocks.zipcode.io.quiz3.fundamentals;
  */
 public class PigLatinGenerator {
     public String translate(String str) {
-         VowelUtils vowelUtils;
 
-        String[] words = str.split(" ");
-        String translated = "";
-        for (String word : words) {
-            translated += translateOneWord(word) + " ";
-            }
-            return translated.trim();
-        }
 
-        public String translateOneWord (String str){
-            VowelUtils vowelUtils = null;
-            if (vowelUtils.startsWithVowel(str)) {
-                return str + "way";
-            } else if (!vowelUtils.hasVowels(str)) {
-                return str + "ay";
+        String [] pigger =  str.split(" ");
+
+        StringBuilder builder;
+        for (int i = 0; i < pigger.length; i++) {
+            if (VowelUtils.isVowel(pigger[i].charAt(0))) {
+                pigger[i] = pigger[i] + "way";
             } else {
-                Integer indexOfVowel = vowelUtils.getIndexOfFirstVowel(str);
-                String substr1 = str.substring(0, indexOfVowel);
-                String substr2 = str.substring(indexOfVowel);
-                return substr2 + substr1 + "ay";
-
+                int x = 0;
+                builder = new StringBuilder();
+                while (!VowelUtils.isVowel(pigger[i].charAt(x)) && x < pigger[i].length() - 1) {
+                    builder.append(pigger[i].charAt(x));
+                    x++;
+                }
+                if (x > pigger[i].length() - 1){
+                    pigger[i] = pigger[i] + "ay";
+                } else {
+                    pigger[i] = pigger[i].substring(x) + builder.toString() + "ay";
+                }
             }
         }
+
+        builder = new StringBuilder();
+        for (String pig : pigger){
+            builder.append(pig);
+            builder.append(" ");
+        }
+
+        return builder.toString().substring(0, builder.length() - 1);
     }
 
+
+
+}

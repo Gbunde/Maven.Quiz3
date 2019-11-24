@@ -5,43 +5,37 @@ package rocks.zipcode.io.quiz3.fundamentals;
  */
 public class VowelUtils {
     public static Boolean hasVowels(String word) {
-
-        boolean hasVowels = false;
-        word = word.toLowerCase();
+        String vowels = "aeiou";
         for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i'
-                    || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
-                hasVowels = true;
+            if (vowels.contains(String.valueOf(word.charAt(i)))) {
+                return true;
             }
         }
-        return null;
+        return false;
+
+
     }
+
 
     public static Integer getIndexOfFirstVowel(String word) {
 
-        word = word.toLowerCase();
-        Integer index = -1;
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i'
-                    || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
-                index = i;
-                break;
+        for (int index = 0; index < word.length(); index++) {
+            if (isVowel(word.charAt(index))) {
+                return index;
             }
         }
-        return index;
+        return -1;
+
+
     }
 
 
     public static Boolean startsWithVowel(String word) {
-
-        word = word.toLowerCase();
-        return (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i'
-                || word.charAt(0) == 'o' || word.charAt(0) == 'u');
+        return isVowel(word.charAt(0));
     }
 
-    public static Boolean isVowel(Character character) {
 
-        character = Character.toLowerCase(character);
-        return null;
+    public static Boolean isVowel (Character character){
+        return "AEIOUaeiou".indexOf(character) != -1;
     }
 }

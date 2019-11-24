@@ -1,6 +1,7 @@
 package rocks.zipcode.io.quiz3.arrays;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author leon on 09/12/2018.
@@ -8,14 +9,20 @@ import java.util.ArrayList;
 public class WaveGenerator {
     public static String[] wave(String str) {
 
-        ArrayList<String> strings = new ArrayList<>();
-        String lowerCase = str.toLowerCase();
-        for (int i = 0; i < lowerCase.length(); i++) {
-            if (Character.isLetter(lowerCase.charAt(i))) {
-                String capital = String.valueOf(lowerCase.charAt(i)).toUpperCase();
-                strings.add(lowerCase.substring(0, i) + capital + lowerCase.substring(i + 1, str.length()));
+        str = str.toLowerCase();
+
+
+        ArrayList<String> waver = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            StringBuilder builder = new StringBuilder();
+
+            if (Character.isLetter(str.charAt(i))) {
+                builder.append(str, 0, i);
+                builder.append(Character.toUpperCase(str.charAt(i)));
+                builder.append(str, i + 1, str.length());
+                waver.add(builder.toString());
             }
         }
-        return null;
+        return waver.toArray(new String[0]);
     }
 }

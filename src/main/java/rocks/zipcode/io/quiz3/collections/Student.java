@@ -8,55 +8,52 @@ import java.util.List;
  * @author leon on 10/12/2018.
  */
 public class Student {
-
-    private List<Lab> labs;
+    ArrayList<Lab> labs = new ArrayList<>();
+    LabStatus labStatus;
 
     public Student() {
-
-
-        this(new ArrayList<>());
+        this(null);
     }
 
     public Student(List<Lab> labs) {
-        this.labs = labs;
     }
 
     public Lab getLab(String labName) {
-
-        Lab retrieved = null;
-        for (Lab lab : labs) {
+        Lab labber = null;
+        for (Lab lab : labs)
             if (lab.getName().equals(labName)) {
-                retrieved = lab;
+                labber = lab;
             }
-        }
-        return null;
+
+        return labber;
     }
 
     public void setLabStatus(String labName, LabStatus labStatus) {
-        Lab toSet = getLab(labName);
-        if (toSet == null) {
-            throw new UnsupportedOperationException("Lab has not been forked");
-        } else {
-            toSet.setStatus(labStatus);
+        if (this.getLab(labName)== (null)){
+            throw new UnsupportedOperationException();
         }
+        Lab lab = this.getLab(labName);
+        lab.labStatus = labStatus;
     }
 
     public void forkLab(Lab lab) {
+        lab.setStatus(labStatus.PENDING);
+
         labs.add(lab);
     }
 
     public LabStatus getLabStatus(String labName) {
-
-        return null;
+        Lab labber2 = this.getLab(labName);
+        return labber2.getStatus();
     }
 
-    @Override
     public String toString() {
-        String str = "";
+        String listerLabs = "";
         labs.sort(Comparator.comparing(Lab::getName));
         for (Lab lab : labs) {
-            str += String.format("%s > %s\n", lab.getName(), lab.getStatus());
+            listerLabs += String.format("%s > %s\n" , lab.getName(),lab.getStatus());
+
         }
-        return null;
+        return listerLabs.trim();
     }
 }
